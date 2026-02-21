@@ -91,7 +91,7 @@ This makes expert-level skincare guidance accessible anytime and anywhere.
 *(Add screenshots of your application here)*
 
 <!-- Remove comments and add actual paths once you take screenshots -->
-<!-- 
+
 ![Screenshot 1](./screenshot1.png)
 *Caption: Landing page of the Skin Analyzer*
 
@@ -100,7 +100,7 @@ This makes expert-level skincare guidance accessible anytime and anywhere.
 
 ![Screenshot 3](./screenshot3.png)
 *Caption: AI-Generated Skin Analysis Results*
--->
+
 
 ---
 
