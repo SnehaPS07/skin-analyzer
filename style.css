@@ -1,0 +1,221 @@
+/* ===== Global Reset ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9ec4, #ffc3e6);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Background Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: left;
+    }
+
+    50% {
+        background-position: right;
+    }
+
+    100% {
+        background-position: left;
+    }
+}
+
+/* ===== Main Container ===== */
+.container {
+    background: white;
+    width: 85%;
+    max-width: 720px;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: popUp 0.6s ease-out;
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===== Heading ===== */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #e91e63, #ad1457, #6a1b9a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    animation: fadeSlide 1s ease forwards;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* ===== Upload Box ===== */
+.upload-box {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #e91e63;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ===== Buttons ===== */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e91e63;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #c2185b;
+    box-shadow: 0 0 15px rgba(233, 30, 99, 0.6);
+    transform: translateY(-2px);
+}
+
+.secondary {
+    margin-left: 10px;
+    background-color: #fff;
+    color: #e91e63;
+    border: 1px solid #e91e63;
+}
+
+.secondary:hover {
+    background-color: #ffe6f0;
+}
+
+/* ===== Loading Animation ===== */
+#loading {
+    font-weight: bold;
+    color: #ad1457;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ===== Result Container ===== */
+.result-box {
+    margin-top: 30px;
+    padding: 0;
+    background: transparent;
+    text-align: left;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Result Card ===== */
+.result-card {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+    border: 1px solid #ffe6f0;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(233, 30, 99, 0.18);
+}
+
+/* ===== Card Header ===== */
+.card-header {
+    background: linear-gradient(135deg, #ffe6f0, #ffc3e6);
+    padding: 16px 20px;
+    border-bottom: 2px solid #fff;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #ad1457;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+/* ===== Card Body ===== */
+.card-body {
+    padding: 20px;
+    color: #444;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.card-body p {
+    margin: 10px 0;
+}
+
+.card-body strong {
+    color: #ad1457;
+}
+
+/* ===== Highlight Chips ===== */
+.highlight {
+    background: #ffe6f0;
+    color: #e91e63;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    display: inline-block;
+    margin: 2px 0;
+    border: 1px solid #ff9ec4;
+}
+
+/* ===== Hidden Class ===== */
+.hidden {
+    display: none;
+}

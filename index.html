@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Skin Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🌸 AI Skin Type Analyzer</h1>
+        <p class="subtitle">Upload a clear face image to analyze skin type, texture & problems</p>
+
+        <div class="upload-box">
+            <input type="file" id="imageInput" accept="image/*">
+            <button onclick="analyzeSkin()">Analyze Skin</button>
+            <button onclick="showSample()" class="secondary">Preview Sample</button>
+        </div>
+
+        <div id="loading" class="hidden">Analyzing your skin... Please wait 💕</div>
+
+        <div id="result" class="result-box hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
