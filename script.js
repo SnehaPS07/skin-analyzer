@@ -99,7 +99,7 @@ Respond strictly with valid JSON matching this structure:
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer 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`
+                        "Authorization": `Bearer ${ENV.GROQ_API_KEY}`
                     },
                     body: JSON.stringify({
                         model: "meta-llama/llama-4-scout-17b-16e-instruct",
