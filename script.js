@@ -78,6 +78,7 @@ async function analyzeSkin() {
 
     reader.onload = async function () {
         const base64Image = reader.result.split(",")[1];
+        const imageDataUrl = `data:${file.type};base64,${base64Image}`;
 
         const prompt = `Analyze this facial skin image carefully and provide the output in JSON format.
 Write all descriptions in clear, normal sentences without any markdown formatting (no asterisks, bullet points, or hashes).
@@ -93,22 +94,32 @@ Respond strictly with valid JSON matching this structure:
 
         try {
             const response = await fetch(
-                "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=AIzaSyBaLMwiBzQvl4VuFY9-oLrG0RNE-I_Ocmo",
+                "https://api.groq.com/openai/v1/chat/completions",
                 {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer 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`
+                    },
                     body: JSON.stringify({
-                        contents: [{
-                            parts: [
-                                { text: prompt },
-                                {
-                                    inlineData: {
-                                        mimeType: file.type,
-                                        data: base64Image
+                        model: "meta-llama/llama-4-scout-17b-16e-instruct",
+                        messages: [
+                            {
+                                role: "user",
+                                content: [
+                                    {
+                                        type: "image_url",
+                                        image_url: {
+                                            url: imageDataUrl
+                                        }
+                                    },
+                                    {
+                                        type: "text",
+                                        text: prompt
                                     }
-                                }
-                            ]
-                        }]
+                                ]
+                            }
+                        ]
                     })
                 }
             );
@@ -128,9 +139,9 @@ Respond strictly with valid JSON matching this structure:
                 return;
             }
 
-            if (data.candidates && data.candidates.length > 0) {
-                let output = data.candidates[0].content.parts[0].text;
-                // Strip markdown backticks if the model ignores the instruction
+            if (data.choices && data.choices.length > 0) {
+                let output = data.choices[0].message.content;
+                // Strip markdown backticks if the model wraps JSON in a code block
                 output = output.replace(/```json/gi, '').replace(/```/g, '').trim();
 
                 let parsedData;
